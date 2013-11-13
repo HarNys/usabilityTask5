@@ -18,11 +18,11 @@
 </div>
 	<ul>
 	<?php
-		$questions = $db->getAllQuestions()
+		$questions = $db->getAllQuestions();
 		
 		while($row = $questions->fetch())
 		{
-			echo "<li>".$row['numOfLikes'] " <h3>" $row['questions']. "</h3>"
+			echo "<li>".$row['numOfLikes'] " <h3>" $row['questions']. "</h3>";
 		}
 	?>
 	</ul>
