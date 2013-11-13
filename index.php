@@ -22,7 +22,7 @@
 		
 		while($row = $questions->fetch())
 		{
-			echo "<li>".$row['numOfLikes'] " <h3>" $row['questions']. "</h3>";
+			echo "<li>" . $row['numOfLikes'] . "<h3>" . $row['title'] . "</h3></li>";
 		}
 	?>
 	</ul>

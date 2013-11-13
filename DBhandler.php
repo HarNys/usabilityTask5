@@ -12,10 +12,10 @@ class DBhandler
 
 	function getAllQuestions()
 	{
-		/*$sql = "SELECT questions, numOfLikes FROM questions";
+		$sql = "SELECT title, numOfLikes FROM questions";
 		$stmt = $this->db->prepare($sql);
 		$stmt->execute();
-		return $stmt;*/
+		return $stmt;
 	}
 
 	// Get one specific question
