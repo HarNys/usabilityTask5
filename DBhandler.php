@@ -7,9 +7,8 @@ class DBhandler
 	//Establis conection to database
 	function __construct() 
 	{
-		$this->db = new PDO("mysql:host=localhost;dbname=usability","usability", "BcACbbJYVUFHtzwf") or die("connection problems");
+		$this->db = new PDO("mysql:host=localhost;dbname=usability","usability", "BcACbbJYVUFHtzwf") or die("Database connection problems");
 	}
-
 
 	function getAllQuestions()
 	{
@@ -19,11 +18,16 @@ class DBhandler
 		return $stmt;*/
 	}
 
-	/*function getQuestions()
+	// Get one specific question
+	// @param the id of the question wanted
+	// @return the result of the SQL statement. (The question if found)
+	function getQuestion($id)
 	{
-
-	
-	}*/
+		$sql = "SELECT * FROM questions WHERE id=$id";
+		$stmt = $this -> db -> prepare($sql);
+		$stmt -> execute();
+		return $stmt;
+	}
 }
 
 ?>
