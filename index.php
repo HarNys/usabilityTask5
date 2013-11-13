@@ -16,15 +16,18 @@
 <div id="head">
 <h1>Fronter</h1>
 </div>
-
-
-
-<div id="content">
 	<ul>
-		<li>22 <a href="1">Hvordan gjør man det</a> Posted:
-		<li>15 <a href="2">Jeg har ikke peiling</a> Posted:
-		<li>16 <a href="3">Dette gir jo ikke mening</a> Posted:
+	<?php
+		$questions = $db->getAllQuestions()
+		
+		while($row = $questions->fetch())
+		{
+			echo "<li>".$row['numOfLikes'] " <h3>" $row['questions']. "</h3>"
+		}
+	?>
 	</ul>
+<div id="content">
+
 </div>
 
 </body>
