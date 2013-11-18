@@ -12,7 +12,9 @@ class DBhandler
 
 	function getAllQuestions()
 	{
-		$sql = "SELECT title, numOfLikes FROM questions";
+		$sql = "SELECT title, numOfLikes, id 
+				FROM questions";
+		
 		$stmt = $this->db->prepare($sql);
 		$stmt->execute();
 		return $stmt;
@@ -23,11 +25,34 @@ class DBhandler
 	// @return the result of the SQL statement. (The question if found)
 	function getQuestion($id)
 	{
-		$sql = "SELECT * FROM questions WHERE id=$id";
+		$sql = "SELECT * 
+				FROM questions 
+				WHERE id=$id";
+		
 		$stmt = $this -> db -> prepare($sql);
 		$stmt -> execute();
 		return $stmt;
 	}
+	
+	//Get all answers for on question
+	function getAnswers($id)
+	{
+		$sql = "SELECT * 
+				FROM comments 
+				WHERE questionId=$id";
+		
+		$stmt = $this -> db -> prepare($sql);
+		$stmt -> execute();
+		return $stmt;
+	}
+	
+	function addAnswers($userId, $questionId, $content)
+	{
+		$sql="INSERT INTO comments(userId,questionId,content) value(:user,:question,:content)";
+		$stmt = $this -> db -> prepare($sql);
+		$stmt -> execute(array(':user'=>$userId, ':question'=>$questionId, ':content'=>$content));
+	}
+	
 }
 
 ?>

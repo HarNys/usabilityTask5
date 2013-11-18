@@ -18,16 +18,12 @@
 </div>
 
 <div id="content">
-	<ul>
-	<?php
-		$questions = $db->getAllQuestions();
-		
-		while($row = $questions->fetch())
-		{
-			echo "<li><b>" . $row['numOfLikes'].": </b> <a href='questions.php?id=".$row['id']."'>". $row['title'] . "</a></li>";
-		}
-	?>
-	</ul>
+	<h2>Write an question:</h2>
+	<form method="post" action="">
+		Question: <input type="text"  name="title" ><br />
+		Description:<textarea name="content" cols="25" rows="5"></textarea><br />
+		<input type="button" value="Submit Question">
+	</form>
 </div>
 
 </body>
