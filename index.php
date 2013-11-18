@@ -14,7 +14,7 @@
 
 <body>
 <div id="head">
-<h1>Fronter</h1>
+<h1><a href="index.php">Fronter</a></h1>
 </div>
 
 <div id="content">
