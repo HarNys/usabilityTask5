@@ -18,6 +18,9 @@
 </div>
 
 <div id="content">
+	<div align="Right">
+		<a href="newquestion.php">New Question<a/>
+	</div>
 	<ul>
 	<?php
 		$questions = $db->getAllQuestions();
