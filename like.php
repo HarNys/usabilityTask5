@@ -2,22 +2,28 @@
 require_once('DBhandler.php');
 $db = new DBhandler();
 session_start();
-$user=$_SESSION['user'];
+$user = $_SESSION['user'];
 
-$id=$_POST['id']
+
+
+$id = $_POST['ID'];
 
 if (isset($_SESSION['user']))
 {
-	if($_POST['type']=="A")
+
+	if($_POST['type']=='A')
 	{
+		echo $id;
 		$db->addLikeAnswers($id);
 	}
 
-	else if($_POST['type']=="Q")
+	else if($_POST['type']=='Q')
 	{
+		echo $id;
 		$db->addLikeQuestion($id);
 	}
 }
+header("index.php");
 
 
 ?>
