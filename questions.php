@@ -29,7 +29,7 @@
 				<font color='green' size='2'> Number of likes: ". $row['numOfLikes']. "</font>";
 			echo "<form>
 					<input type='hidden' value='". $_GET['id']."' name='questionID' >
-					<input type='button' value='Like!'>
+					<input type='submit' value='Like!'>
 				</form>";
 		}
 		echo "<p />"
@@ -46,16 +46,16 @@
 			echo "<font color='green'><b>".$row['numOfLikes']."</font></b> ". $row['content']. "<br /> ";
 			echo "<form>
 					<input type='hidden' value='". $_GET['id']."' name='questionID' >
-					<input type='button' value='Like!'>
+					<input type='submit' value='Like!'>
 				</form>";
 		}
 		echo "<p />";
 	?>
 	<h2>Write an answers:</h2>
-	<form method="post" action="">
+	<form method="post" action="postAnswer.php">
 		<input type="hidden" value="<?php echo $_GET['id']; ?>" name="questionID" >
 		<textarea name="answers" cols="25" rows="5"></textarea><br />
-		<input type="button" value="Submit Answers">
+		<input type="submit" value="Submit Answers">
 	</form>
 
 </div>

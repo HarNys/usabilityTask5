@@ -10,7 +10,7 @@ $content = $_POST['answers'];
 
 if (isset($_SESSION['user']))
 {
-	$db->addAnswers($user, $questionID, $content)
+	$db->addAnswers($user, $questionID, $content);
 	header("questions.php?id=".$questionID);
 }
 else

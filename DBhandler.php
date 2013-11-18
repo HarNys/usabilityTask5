@@ -48,9 +48,16 @@ class DBhandler
 	
 	function addAnswers($userId, $questionId, $content)
 	{
-		$sql="INSERT INTO comments(userId,questionId,content) value(:user,:question,:content)";
+		$sql="INSERT INTO comments(userId,questionId,content) VALUES(:user,:question,:content)";
 		$stmt = $this -> db -> prepare($sql);
 		$stmt -> execute(array(':user'=>$userId, ':question'=>$questionId, ':content'=>$content));
+	}
+	
+	function newQuestion ($userID, $title, $content)
+	{
+		$sql="INSERT INTO questions(userID, title, content) VALUES(:user,:question,:content)";
+		$stmt = $this -> db -> prepare($sql);
+		$stmt -> execute(array(':user'=>$userID, ':question'=>$title, ':content'=>$content));
 	}
 	
 }

@@ -19,10 +19,10 @@
 
 <div id="content">
 	<h2>Write an question:</h2>
-	<form method="post" action="">
+	<form method="post" action="postQuestion.php">
 		Question: <input type="text"  name="title" ><br />
 		Description:<textarea name="content" cols="25" rows="5"></textarea><br />
-		<input type="button" value="Submit Question">
+		<input type="submit" value="Submit Question">
 	</form>
 </div>
 
