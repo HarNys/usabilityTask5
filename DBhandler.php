@@ -60,6 +60,20 @@ class DBhandler
 		$stmt -> execute(array(':user'=>$userID, ':question'=>$title, ':content'=>$content));
 	}
 	
+	function addLikeQuestion($id)
+	{
+		$sql="UPDATE comments SET numOfLikes=numOfLikes+1 WHERE id = :id";
+		$stmt = $this -> db -> prepare($sql);
+		$stmt -> execute(array(':id'=>$id));
+	}
+	
+		function addLikeAnswers($id)
+	{
+		$sql="UPDATE questions SET numOfLikes=numOfLikes+1 WHERE id = :id";
+		$stmt = $this -> db -> prepare($sql);
+		$stmt -> execute(array(':id'=>$id));
+	}
+	
 }
 
 ?>

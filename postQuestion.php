@@ -10,7 +10,7 @@ $content = $_POST['content'];
 
 if (isset($_SESSION['user']))
 {
-	//$db->newQuestion($user, $title, $content);
+	$db->newQuestion($user, $title, $content);
 }
 else
 echo "You are not logged in";

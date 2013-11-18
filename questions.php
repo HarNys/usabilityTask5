@@ -27,8 +27,9 @@
 		{
 			echo "<h3>". $row['title']. "</h3><br />". $row['content']. "<p /> " . " 
 				<font color='green' size='2'> Number of likes: ". $row['numOfLikes']. "</font>";
-			echo "<form>
-					<input type='hidden' value='". $_GET['id']."' name='questionID' >
+			echo "<form method='post' action='like.php'>
+					<input type='hidden' value='". $_GET['id']."' name='ID' >
+					<input type='hidden' value='Q' name='type' >
 					<input type='submit' value='Like!'>
 				</form>";
 		}
@@ -44,8 +45,9 @@
 		while($row = $question->fetch())
 		{
 			echo "<font color='green'><b>".$row['numOfLikes']."</font></b> ". $row['content']. "<br /> ";
-			echo "<form>
-					<input type='hidden' value='". $_GET['id']."' name='questionID' >
+			echo "<form method='post' action='like.php'>
+					<input type='hidden' value='". $row['id']."' name='ID' >
+					<input type='hidden' value='A' name='type' >
 					<input type='submit' value='Like!'>
 				</form>";
 		}
