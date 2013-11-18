@@ -21,18 +21,19 @@ session_start();
 
 <div id="content">
 <?php
-if(!isset($_SESSION['user'];))
-{
-	echo"<form method='post' action='checkUser.php'>
-		Username: <input type='text' name='username'><br />
-		Password: <input type='password' name='password'><br />
-		<input type='submit' value='Log in'>
-	</form>";
-}
-else
-{
-	session_destroy();
-}
+	if(isset($_SESSION['user']))
+	{
+		session_destroy();
+	}
+	else
+	{
+		
+		echo"<form method='post' action='checkUser.php'>
+			Username: <input type='text' name='username'><br />
+			Password: <input type='password' name='password'><br />
+			<input type='submit' value='Log in'>
+		</form>";
+	}
 ?>
 </div>
 
