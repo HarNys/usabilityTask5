@@ -14,7 +14,11 @@
 
 <body>
 <div id="head">
-	<h1><a href="index.php">Fronter</a></h1>
+	<div id="headContent">
+		<div align="Left">
+			<h1><a href="index.php"> >> Fronter</a></h1>
+		</div>
+	</div>
 </div>
 
 <div id="content">
