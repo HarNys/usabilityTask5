@@ -14,14 +14,28 @@
 
 <body>
 <div id="head">
-<h1><a href="index.php">Fronter</a></h1>
+	<div id="headContent">
+		<div align="Left">
+			<h1><a href="index.php"> >> Fronter</a></h1>
+			<?php
+				if(isset($_SESSION['user']))
+				{
+					// Display Signed in as: Name. ?
+				}
+				else
+				{
+					// Display log in form. 
+				}
+			?>
+		</div>
+	</div>
 </div>
 
 <div id="content">
-	<h2>Write an question:</h2>
+	<h2>Ask a new question</h2>
 	<form method="post" action="postQuestion.php">
-		Question: <input type="text"  name="title" ><br />
-		Description:<textarea name="content" cols="25" rows="5"></textarea><br />
+		<input type="text" placeholder="Insert title here..." name="title" ><br />
+		<textarea name="content" cols="25" rows="5">Insert Content / Question Description here...</textarea><br />
 		<input type="submit" value="Submit Question">
 	</form>
 </div>

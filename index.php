@@ -17,14 +17,25 @@
 	<div id="headContent">
 		<div align="Left">
 			<h1><a href="index.php"> >> Fronter</a></h1>
+			<?php
+				if(isset($_SESSION['user']))
+				{
+					// Display Signed in as: Name. ?
+				}
+				else
+				{
+					// Display log in form. 
+				}
+			?>
 		</div>
 	</div>
 </div>
 
 <div id="content">
-	<div align="Right">
-		<a href="newquestion.php">New Question<a/>
-	</div>
+	
+	<h1>Questions and answers</h1>
+	<a class="derp" href="newquestion.php">Ask a Question<a/>
+
 	<ul>
 	<?php
 		$questions = $db->getAllQuestions();

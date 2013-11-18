@@ -20,6 +20,18 @@ class DBhandler
 		return $stmt;
 	}
 
+	// Get the name of a specific user
+	// @param the id of the user wanted
+	// @return the result of the database query. (Username if found) 
+	function getUsername($id)
+	{
+		$sql = "SELECT name FROM users WHERE id=$id";
+		$stmt = $this -> db -> prepare ($sql);
+		$stmt -> execute();
+
+		return $stmt;
+	}
+
 	// Get one specific question
 	// @param the id of the question wanted
 	// @return the result of the SQL statement. (The question if found)
@@ -34,7 +46,7 @@ class DBhandler
 		return $stmt;
 	}
 	
-	//Get all answers for on question
+	//Get all answers for one question
 	function getAnswers($id)
 	{
 		$sql = "SELECT * 

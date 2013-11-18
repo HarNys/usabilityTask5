@@ -14,7 +14,21 @@
 
 <body>
 <div id="head">
-<h1><a href="index.php">Fronter</a></h1>
+	<div id="headContent">
+		<div align="Left">
+			<h1><a href="index.php"> >> Fronter</a></h1>
+			<?php
+				if(isset($_SESSION['user']))
+				{
+					// Display Signed in as: Name. ?
+				}
+				else
+				{
+					// Display log in form. 
+				}
+			?>
+		</div>
+	</div>
 </div>
 
 <div id="content">
@@ -25,13 +39,20 @@
 		
 		while($row = $question->fetch())
 		{
-			echo "<h3>". $row['title']. "</h3><br />". $row['content']. "<p /> " . " 
-				<font color='green' size='2'> Number of likes: ". $row['numOfLikes']. "</font>";
+			$author = $db -> getUsername($row['userID']);
+			$author = $author -> fetch();
+
+			echo "<h3>" . $row['title'] . "</h3>" . 
+			     "<p class='derp'>Posted by: " . $author['name'] . " at " .  
+				 $row['dateTime'] . "</p><br /> " . 
+				 $row['content'] . "<p /> ";
+			
 			echo "<form method='post' action='like.php'>
 					<input type='hidden' value='". $_GET['id']."' name='ID' >
 					<input type='hidden' value='Q' name='type' >
-					<input type='submit' value='Like!'>
+					<input type='image' src='upvote.png'>
 				</form>";
+			echo "<font color='green' size='4'><b>". $row['numOfLikes'] . "</b></font>";
 		}
 		echo "<p />"
 	?>
@@ -44,16 +65,17 @@
 		
 		while($row = $question->fetch())
 		{
-			echo "<font color='green'><b>".$row['numOfLikes']."</font></b> ". $row['content']. "<br /> ";
+			
 			echo "<form method='post' action='like.php'>
 					<input type='hidden' value='". $row['id']."' name='ID' >
 					<input type='hidden' value='A' name='type' >
-					<input type='submit' value='Like!'>
+					<input type='image' src='upvote.png'>
 				</form>";
+			echo "<font color='green'><b>".$row['numOfLikes']."</font></b> ". $row['content']. "<br /> ";
 		}
 		echo "<p />";
 	?>
-	<h2>Write an answers:</h2>
+	<h2>Submit your own answer:</h2>
 	<form method="post" action="postAnswer.php">
 		<input type="hidden" value="<?php echo $_GET['id']; ?>" name="questionID" >
 		<textarea name="answers" cols="25" rows="5"></textarea><br />

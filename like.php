@@ -2,14 +2,13 @@
 require_once('DBhandler.php');
 $db = new DBhandler();
 session_start();
-$user = $_SESSION['user'];
-
 
 
 $id = $_POST['ID'];
 
 if (isset($_SESSION['user']))
 {
+	$user = $_SESSION['user'];
 
 	if($_POST['type']=='A')
 	{
@@ -23,6 +22,11 @@ if (isset($_SESSION['user']))
 		$db->addLikeQuestion($id);
 	}
 }
+else
+{
+	echo "You must be logged in to upvote!";
+}
+
 header("index.php");
 
 
