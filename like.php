@@ -12,22 +12,18 @@ if (isset($_SESSION['user']))
 
 	if($_POST['type']=='A')
 	{
-		echo $id;
 		$db->addLikeAnswers($id);
+		$questionID=$_POST['qID'];
 	}
 
 	else if($_POST['type']=='Q')
 	{
-		echo $id;
 		$db->addLikeQuestion($id);
+		$questionID = $id;
 	}
 }
-else
-{
-	echo "You must be logged in to upvote!";
-}
 
-header("index.php");
+header("Location: questions.php?id=" . $questionID);
 
 
 ?>
