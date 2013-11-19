@@ -26,7 +26,7 @@
 					$username = $db -> getUsername($_SESSION['user']);
 					$username = $username -> fetch();
 
-					echo "<p>Logged in as " . $username['name'] . ".</p>";
+					echo "<p>Logged in as " . $username['name'] . ". <a href='logout.php'>Logout</a> .</p>";
 				}
 				else
 				{

@@ -17,13 +17,9 @@ if($numRows > 0)
 	if($row['password'] == $_POST['password'])
 	{
 		$_SESSION['user']=$row['id'];
-		echo "logged in  <a href='index.php'>click here</a>";
-	}
-	else
-	{
-		echo "wrong password";
+		header("Location: index.php");
 	}
 }
 else
-echo "no user with that name"
+
 ?>
