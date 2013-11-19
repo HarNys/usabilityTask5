@@ -35,7 +35,7 @@ ul a:active
 
 form, form div
 {
-	display: inline;
+	/*display: inline;*/
 }
 
 #headContent h1 a
