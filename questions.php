@@ -83,6 +83,7 @@
 			echo "<form method='post' action='like.php'>
 					<input type='hidden' value='". $row['id']."' name='ID' >
 					<input type='hidden' value='A' name='type' >
+					<input type='hidden' value='" . $id . "' name='qID' >
 					<input type='image' src='upvote.png'>
 				</form>";
 

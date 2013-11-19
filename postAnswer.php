@@ -11,9 +11,8 @@ $content = $_POST['answers'];
 if (isset($_SESSION['user']))
 {
 	$db->addAnswers($user, $questionID, $content);
-	header("questions.php?id=".$questionID);
 }
-else
-echo "You are not logged in";
+
+header("Location: questions.php?id=" . $questionID);
 
 ?>
