@@ -3,6 +3,7 @@
 <?php
 	require_once('DBhandler.php');
 	$db = new DBhandler();
+	session_start();
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,17 +18,26 @@
 	<div id="headContent">
 		<div align="Left">
 			<h1><a href="index.php"> >> Fronter</a></h1>
+		</div>
+			<span class="test">
 			<?php
 				if(isset($_SESSION['user']))
-				{
-					// Display Signed in as: Name. ?
+				{	
+					$username = $db -> getUsername($_SESSION['user']);
+					$username = $username -> fetch();
+
+					echo "<p>Logged in as " . $username['name'] . ".</p>";
 				}
 				else
 				{
-					// Display log in form. 
+					echo"<form method='post' action='checkUser.php'>
+						<label>Username: <input type='text' name='username'></label>
+						<label>Password: <input type='password' name='password'></label>
+						<input type='submit' value='Log in'>
+						</form>";
 				}
 			?>
-		</div>
+		</span>
 	</div>
 </div>
 

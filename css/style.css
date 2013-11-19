@@ -50,6 +50,11 @@ form, form div
 	text-decoration:underline;
 }
 
+#headContent p
+{
+	color: #FDFDFD;
+}
+
 /******************************************************/
 #content
 {
@@ -82,6 +87,11 @@ form, form div
 	padding-right: 20px;
 }
 
+#content em
+{
+	float: right;
+}
+
 .derp
 {
 	float: right;
@@ -103,6 +113,47 @@ form, form div
 	height: 100%;
 	margin: auto;
 }
+
+.test label
+{
+	color: #FDFDFD;
+}
+
+/*.test form
+{
+	float: right;
+	margin-right: 30px;
+	height: 40px;
+	padding-top: 8px;
+}
+
+.test form label
+{
+	display: inline-block;
+	margin: 0 2px;
+}
+
+.test form input {}
+
+.test form .submit 
+{
+    height: 23px;
+    vertical-align: bottom;
+    background: #d743ae; 
+    color: #fff;
+    border: 1px solid #ddd;
+    -moz-border-radius: 5px;    
+    border-radius: 5px;
+}
+
+.test form #s-user, 
+.test form #s-pass {
+    display: block;
+    width: 250px;
+    border: 1px solid #eee;
+    padding: 3px 0 3px 0;
+    margin-bottom: -1px;
+}*/
 
 #rules
 {

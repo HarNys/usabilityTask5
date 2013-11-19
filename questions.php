@@ -3,6 +3,7 @@
 <?php
 	require_once('DBhandler.php');
 	$db = new DBhandler();
+	session_start();
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,17 +18,26 @@
 	<div id="headContent">
 		<div align="Left">
 			<h1><a href="index.php"> >> Fronter</a></h1>
+		</div>
+			<span class="test">
 			<?php
 				if(isset($_SESSION['user']))
-				{
-					// Display Signed in as: Name. ?
+				{	
+					$username = $db -> getUsername($_SESSION['user']);
+					$username = $username -> fetch();
+
+					echo "<p>Logged in as " . $username['name'] . ".</p>";
 				}
 				else
 				{
-					// Display log in form. 
+					echo"<form method='post' action='checkUser.php'>
+						<label>Username: <input type='text' name='username'></label>
+						<label>Password: <input type='password' name='password'></label>
+						<input type='submit' value='Log in'>
+						</form>";
 				}
 			?>
-		</div>
+		</span>
 	</div>
 </div>
 
@@ -44,9 +54,10 @@
 
 			echo "<h3>" . $row['title'] . "</h3>" . 
 			     "<p class='derp'>Posted by: " . $author['name'] . " at " .  
-				 $row['dateTime'] . "</p><br /> " . 
+				 $row['dateTime'] . ".</p><br /> " . 
 				 $row['content'] . "<p /> ";
 			
+			// insert like button / form. 
 			echo "<form method='post' action='like.php'>
 					<input type='hidden' value='". $_GET['id']."' name='ID' >
 					<input type='hidden' value='Q' name='type' >
@@ -61,20 +72,29 @@
 	
 	<?php
 		$id = $_GET['id'];
-		$question = $db->getAnswers($id);
+		$answers = $db->getAnswers($id);
 		
-		while($row = $question->fetch())
+		while($row = $answers->fetch())
 		{
+			$author = $db -> getUsername($row['userId']);
+			$author = $author -> fetch();
 			
+			// insert like button / form. 
 			echo "<form method='post' action='like.php'>
 					<input type='hidden' value='". $row['id']."' name='ID' >
 					<input type='hidden' value='A' name='type' >
 					<input type='image' src='upvote.png'>
 				</form>";
-			echo "<font color='green'><b>".$row['numOfLikes']."</font></b> ". $row['content']. "<br /> ";
+
+
+			echo "<font color='green'><b>".$row['numOfLikes']."</font></b> ". $row['content'] .
+			     "<em>Answer by " . $author['name'] . " at " . $row['timeStamp'] .  ".</em>" . 
+			     "<HR WIDTH='90%' color='#13385D' SIZE='1'><br /> ";
 		}
 		echo "<p />";
 	?>
+
+
 	<h2>Submit your own answer:</h2>
 	<form method="post" action="postAnswer.php">
 		<input type="hidden" value="<?php echo $_GET['id']; ?>" name="questionID" >
