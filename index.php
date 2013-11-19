@@ -68,13 +68,32 @@
 				echo "</div>";
 				
 				echo "<div id='replies'>";
-				echo $db->getNumberOfAnswers($id). " answers.";
+
+				$NumberOfAnswers = $db->getNumberOfAnswers($id);
+
+				if($NumberOfAnswers > 0)
+				{
+					echo $NumberOfAnswers. " answers.";	
+				}
+				else
+				{
+					echo "No answers yet!";
+				}
+
 				echo "</div>";
 
 				$lastAnswer = $db->lastAnswer($id);
 
 				echo "<div id='lastA'>";
-				echo $lastAnswer['name']. " at: ".$lastAnswer['TIMESTAMP'] . "</li>";
+				if($NumberOfAnswers > 0)
+				{
+					echo $lastAnswer['name']. " at: ".$lastAnswer['TIMESTAMP'] . "</li>";	
+				}
+				else
+				{
+					echo "No answers yet!</li>";
+				}
+				
 				echo "</div>";
 				echo "<br style='clear:left;'>";
 				echo "<HR WIDTH='99%' color='#13385D' SIZE='2''>"; 

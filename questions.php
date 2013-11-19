@@ -53,17 +53,22 @@
 			$author = $author -> fetch();
 
 			echo "<h3>" . $row['title'] . "</h3>" . 
-			     "<p class='derp'>Posted by: " . $author['name'] . " at " .  
-				 $row['dateTime'] . ".</p><br /> " . 
-				 $row['content'] . "<p /> ";
-			
-			// insert like button / form. 
+			     "<p class='derp'>Posted by: " . $author['name'] . " at ";
+
+			echo $row['dateTime'] . ".</p><br /> ";
+
+
+			     			// insert like button / form. 
 			echo "<form method='post' action='like.php'>
 					<input type='hidden' value='". $_GET['id']."' name='ID' >
 					<input type='hidden' value='Q' name='type' >
 					<input type='image' src='upvote.png'>
 				</form>";
 			echo "<font color='green' size='4'><b class='like'>". $row['numOfLikes'] . "</b></font>";
+
+			echo $row['content'] . "<p /> ";
+			
+
 		}
 		echo "<p />"
 	?>
@@ -71,27 +76,40 @@
 	<h2>Answers:</h2>
 	
 	<?php
-		$id = $_GET['id'];
-		$answers = $db->getAnswers($id);
 		
-		while($row = $answers->fetch())
+
+		if ($db->getNumberOfAnswers($_GET['id']))
 		{
-			$author = $db -> getUsername($row['userId']);
-			$author = $author -> fetch();
-			
-			// insert like button / form. 
-			echo "<form method='post' action='like.php'>
-					<input type='hidden' value='". $row['id']."' name='ID' >
-					<input type='hidden' value='A' name='type' >
-					<input type='hidden' value='" . $id . "' name='qID' >
-					<input type='image' src='upvote.png'>
-				</form>";
+			$id = $_GET['id'];
+			$answers = $db->getAnswers($id);
+
+			while($row = $answers->fetch())
+			{
+				$author = $db -> getUsername($row['userId']);
+				$author = $author -> fetch();
+				
+				// insert like button / form. 
+				echo "<form method='post' action='like.php'>
+						<input type='hidden' value='". $row['id']."' name='ID' >
+						<input type='hidden' value='A' name='type' >
+						<input type='hidden' value='" . $id . "' name='qID' >
+						<input type='image' src='upvote.png'>
+					</form>";
 
 
-			echo "<font color='green'><b class='like'>".$row['numOfLikes']."</font></b> ". $row['content'] .
-			     "<em>Answer by " . $author['name'] . " at " . $row['timeStamp'] .  ".</em>" . 
-			     "<HR WIDTH='90%' color='#13385D' SIZE='1'><br /> ";
+				echo "<font color='green'><b class='like'>".$row['numOfLikes']."</font></b> ". $row['content'] .
+				     "<em>Answer by " . $author['name'] . " at " . $row['timeStamp'] .  ".</em>" . 
+				     "<HR WIDTH='90%' color='#13385D' SIZE='1'><br /> ";
+			}
+
+
 		}
+		else
+		{
+			echo "No answers yet! <HR WIDTH='90%' color='#13385D' SIZE='1'><br />" ;
+		}
+		
+		
 		echo "<p />";
 	?>
 
