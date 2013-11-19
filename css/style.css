@@ -59,7 +59,7 @@ form, form div
 #content
 {
 	background-color:#FCFCFC;
-	width: 850px;
+	width: 80%;
 	height: 100%; 
 	margin:auto;
 	padding-bottom:10px;
@@ -111,7 +111,7 @@ form, form div
 
 #headContent
 {
-	width: 850px;
+	width: 80%;
 	height: 100%;
 	margin: auto;
 }
