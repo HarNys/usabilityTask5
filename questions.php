@@ -63,7 +63,7 @@
 					<input type='hidden' value='Q' name='type' >
 					<input type='image' src='upvote.png'>
 				</form>";
-			echo "<font color='green' size='4'><b>". $row['numOfLikes'] . "</b></font>";
+			echo "<font color='green' size='4'><b class='like'>". $row['numOfLikes'] . "</b></font>";
 		}
 		echo "<p />"
 	?>
@@ -88,7 +88,7 @@
 				</form>";
 
 
-			echo "<font color='green'><b>".$row['numOfLikes']."</font></b> ". $row['content'] .
+			echo "<font color='green'><b class='like'>".$row['numOfLikes']."</font></b> ". $row['content'] .
 			     "<em>Answer by " . $author['name'] . " at " . $row['timeStamp'] .  ".</em>" . 
 			     "<HR WIDTH='90%' color='#13385D' SIZE='1'><br /> ";
 		}

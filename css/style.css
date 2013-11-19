@@ -38,6 +38,22 @@ form, form div
 	/*display: inline;*/
 }
 
+hr.style1
+{
+	height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+}
+
+hr.style2
+{
+	height: 6px;
+    border: 0;
+    box-shadow: inset 0 6px 6px -6px black;
+}
+
 #headContent h1 a
 {
 	text-decoration:none;
@@ -69,6 +85,12 @@ form, form div
 	position:relative
 }
 
+#content b.like
+{
+	padding-left: 1.5%;
+	padding-right: 2%;
+}
+
 #content h1
 {
 	display: inline;
@@ -80,12 +102,7 @@ form, form div
 	padding-bottom: 10px;
 }
 
-#content b
-{
-	display: inline-block;
-	padding-left: 11px;
-	padding-right: 20px;
-}
+
 
 #content em
 {
@@ -135,14 +152,14 @@ form, form div
 
 #tall
 {
-	width: 2%;
+	width: 5%;
 	float: left;
 		
 }
 
 #titles
 {
-	width: 32%;
+	width: 42%;
 	text-align: left;
 	float: left;
 	margin: auto;	
@@ -150,24 +167,20 @@ form, form div
 
 #replies
 {
-	width: 32%;
+	text-align: center;
+	width: 9%;
 	float: left;
 	margin: auto;
+	padding-right:2%; 
 }
 
 #lastA
 {
-	width: 32%;
+	width: 42%;
+	text-align: right;
 	float: left;
 	margin: auto;
 }
-
-
-
-
-/*left center right*/
-
-
 
 
 #footer

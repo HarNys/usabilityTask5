@@ -46,30 +46,39 @@
 	<h1>Questions and answers</h1>
 	<a class="derp" href="newquestion.php">Ask a Question<a/>
 	<div id="container">
+		
+			<div id='tall'> Likes </div>
+				<div id='titles'> Title </div>
+				<div id='replies'> # Answers </div>
+				<div id='lastA'> Last Answer </div> 
+				<HR WIDTH='99%' class='style2'>
 		<ul>
 		<?php
 			$questions = $db->getAllQuestions();
 			
 			while($row = $questions->fetch())
 			{
+				$id=$row['id'];
 				echo "<div id='tall'>"; 
-				echo "<li><b>" . $row['numOfLikes'].":";
+				echo "<li><b> <font color='green'>" . $row['numOfLikes']. "</font>";
 				echo "</div>";
 
 				echo "<div id='titles'>";
-				echo " </b> <a href='questions.php?id=".$row['id']."'>". $row['title'] . "</a>";
+				echo " </b> <a href='questions.php?id=". $id."'>". $row['title'] . "</a>";
 				echo "</div>";
 				
 				echo "<div id='replies'>";
-				echo "derp";
+				echo $db->getNumberOfAnswers($id). " answers.";
 				echo "</div>";
 
+				$lastAnswer = $db->lastAnswer($id);
+
 				echo "<div id='lastA'>";
-				echo "herp</li>";
+				echo $lastAnswer['name']. " at: ".$lastAnswer['TIMESTAMP'] . "</li>";
 				echo "</div>";
 				echo "<br style='clear:left;'>";
-				echo "<HR WIDTH='100%' color='#13385D' SIZE='1'>";
-			}
+				echo "<HR WIDTH='99%' color='#13385D' SIZE='2''>"; 
+	 		}
 		?>
 		</ul>
 	<div>

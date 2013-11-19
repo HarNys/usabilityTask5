@@ -13,7 +13,7 @@ class DBhandler
 	function getAllQuestions()
 	{
 		$sql = "SELECT title, numOfLikes, id 
-				FROM questions";
+				FROM questions ORDER BY dateTime DESC";
 		
 		$stmt = $this->db->prepare($sql);
 		$stmt->execute();
@@ -51,7 +51,7 @@ class DBhandler
 	{
 		$sql = "SELECT * 
 				FROM comments 
-				WHERE questionId=$id";
+				WHERE questionId=$id ORDER BY numOfLikes DESC";
 		
 		$stmt = $this -> db -> prepare($sql);
 		$stmt -> execute();
@@ -92,7 +92,23 @@ class DBhandler
 				FROM  comments 
 				WHERE questionId LIKE :qid";
 		$stmt = $this -> db -> prepare($sql);
-		$stmt -> execute(array(':qid'=>$qid));
+		$stmt -> execute(array(':qid'=>$qID));
+		$value = $stmt->fetch();
+		return $value['numAnswers'];
+	}
+
+	function lastAnswer($qID)
+	{
+		$sql = "SELECT TIMESTAMP, users.name
+				FROM comments
+				JOIN users ON users.id = userId
+				WHERE questionId LIKE :qid 
+				ORDER BY TIMESTAMP DESC 
+				LIMIT 1";
+		$stmt = $this -> db -> prepare($sql);
+		$stmt -> execute(array(':qid'=>$qID));
+		$value = $stmt->fetch();
+		return $value;
 	}
 }
 
