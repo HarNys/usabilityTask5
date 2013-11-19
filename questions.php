@@ -16,10 +16,10 @@
 <body>
 <div id="head">
 	<div id="headContent">
-		<div align="Left">
+		<div align="Left" class="title ">
 			<h1><a href="index.php"> >> Fronter</a></h1>
 		</div>
-			<span class="test">
+			<div class="test">
 			<?php
 				if(isset($_SESSION['user']))
 				{	
@@ -37,7 +37,7 @@
 						</form>";
 				}
 			?>
-		</span>
+		</div>
 	</div>
 </div>
 
