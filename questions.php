@@ -52,7 +52,7 @@
 			$author = $db -> getUsername($row['userID']);
 			$author = $author -> fetch();
 
-			echo "<h3>" . $row['title'] . "</h3>" . 
+			echo "<h2>" . $row['title'] . "</h2>" . 
 			     "<p class='derp'>Posted by: " . $author['name'] . " at ";
 
 			echo $row['dateTime'] . ".</p><br /> ";
@@ -66,7 +66,7 @@
 				</form>";
 			echo "<font color='green' size='4'><b class='like'>". $row['numOfLikes'] . "</b></font>";
 
-			echo $row['content'] . "<p /> ";
+			echo $row['content'] . "<p /> <HR WIDTH='99%' color='#13385D' SIZE='3'><br />";
 			
 
 		}
