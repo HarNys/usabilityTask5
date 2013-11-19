@@ -126,85 +126,49 @@ form, form div
 	color: #FDFDFD;
 }
 
-/*.test form
+
+#container
 {
-	float: right;
-	margin-right: 30px;
-	height: 40px;
-	padding-top: 8px;
+	width: 100%;
+	overflow: hidden;
 }
 
-.test form label
+#tall
 {
-	display: inline-block;
-	margin: 0 2px;
+	width: 2%;
+	float: left;
+		
 }
 
-.test form input {}
-
-.test form .submit 
+#titles
 {
-    height: 23px;
-    vertical-align: bottom;
-    background: #d743ae; 
-    color: #fff;
-    border: 1px solid #ddd;
-    -moz-border-radius: 5px;    
-    border-radius: 5px;
+	width: 32%;
+	text-align: left;
+	float: left;
+	margin: auto;	
 }
 
-.test form #s-user, 
-.test form #s-pass {
-    display: block;
-    width: 250px;
-    border: 1px solid #eee;
-    padding: 3px 0 3px 0;
-    margin-bottom: -1px;
-}*/
-
-#rules
+#replies
 {
-	width: 800px;
-	text-align:left;
-	margin:auto;
-	float:center;	
-	border-bottom: solid;
-	border-color:blue;
-	border-width:1px;
+	width: 32%;
+	float: left;
+	margin: auto;
 }
+
+#lastA
+{
+	width: 32%;
+	float: left;
+	margin: auto;
+}
+
+
+
 
 /*left center right*/
-#rules .box1
-{
-	/*margin:auto;*/
-	display:table-cell;
-	width:25px;
-	
-}
-#rules .box2
-{
-/*	margin:auto;*/
-	display:table-cell;
-	
-	width:700px;
-	
-	border-left:dashed;
-	border-right:dashed;
-	border-color:blue;
-	border-width:1px;
-	
-	padding-left:5px;
-	padding-right:5px;
-	
-}
-#rules .box3
-{
-	width:50px;
-	padding-left:5px;
-	/*margin:auto;*/
 
-	display:table-cell;
-}
+
+
 
 #footer
 {

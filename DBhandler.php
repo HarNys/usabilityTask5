@@ -85,7 +85,15 @@ class DBhandler
 		$stmt = $this -> db -> prepare($sql);
 		$stmt -> execute(array(':id'=>$id));
 	}
-	
+
+	function getNumberOfAnswers($qID)
+	{
+		$sql = "SELECT count(id) AS numAnswers 
+				FROM  comments 
+				WHERE questionId LIKE :qid";
+		$stmt = $this -> db -> prepare($sql);
+		$stmt -> execute(array(':qid'=>$qid));
+	}
 }
 
 ?>

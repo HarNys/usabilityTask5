@@ -45,17 +45,34 @@
 	
 	<h1>Questions and answers</h1>
 	<a class="derp" href="newquestion.php">Ask a Question<a/>
+	<div id="container">
+		<ul>
+		<?php
+			$questions = $db->getAllQuestions();
+			
+			while($row = $questions->fetch())
+			{
+				echo "<div id='tall'>"; 
+				echo "<li><b>" . $row['numOfLikes'].":";
+				echo "</div>";
 
-	<ul>
-	<?php
-		$questions = $db->getAllQuestions();
-		
-		while($row = $questions->fetch())
-		{
-			echo "<li><b>" . $row['numOfLikes'].": </b> <a href='questions.php?id=".$row['id']."'>". $row['title'] . "</a></li>";
-		}
-	?>
-	</ul>
+				echo "<div id='titles'>";
+				echo " </b> <a href='questions.php?id=".$row['id']."'>". $row['title'] . "</a>";
+				echo "</div>";
+				
+				echo "<div id='replies'>";
+				echo "derp";
+				echo "</div>";
+
+				echo "<div id='lastA'>";
+				echo "herp</li>";
+				echo "</div>";
+				echo "<br style='clear:left;'>";
+				echo "<HR WIDTH='100%' color='#13385D' SIZE='1'>";
+			}
+		?>
+		</ul>
+	<div>
 </div>
 
 </body>
